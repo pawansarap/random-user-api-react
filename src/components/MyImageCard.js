@@ -1,15 +1,21 @@
 import { Card } from "react-bootstrap";
 
+
 function MyImageCard({ details }) {
 
-  const country = details.location?.country;
+  const country = details.nat;
   console.log(country);
-  const flagUrl = `https://countryflagsapi.com/png/${country}`;
+  const countryCode = country?.toLowerCase()
+  console.log(countryCode);
+
+
+  const flagUrl = `https://flagcdn.com/256x192/${countryCode}.webp`;
+  console.log(flagUrl)
    
   return (
     <Card>
       <Card.Body className="text-center">
-        <img crossOrigin="anonymous" src={flagUrl} alt="" />
+        <img crossOrigin="anonymous"  src={flagUrl}  />
       </Card.Body>
     </Card>
   );
